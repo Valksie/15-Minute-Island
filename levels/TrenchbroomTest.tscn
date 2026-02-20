@@ -1,28 +1,189 @@
 [gd_scene format=4 uid="uid://c0adst24xx6bl"]
 
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_a1lks"]
+[ext_resource type="Texture2D" uid="uid://dmxpqk13pab6u" path="res://other_textures/skybox/qwantani_moon_noon_puresky_1k.exr" id="1_dslhr"]
 [ext_resource type="Resource" uid="uid://cyve4qi1t1u33" path="res://trenchbroom/15-Minute-Island_settings.tres" id="2_tiyyp"]
 [ext_resource type="Material" uid="uid://djmg6dxt6u2dl" path="res://trenchbroom/textures/sand_seamless.tres" id="3_tiyyp"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="4_cdh43"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_cdh43"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vtiin"]
+panorama = ExtResource("1_dslhr")
+
+[sub_resource type="Sky" id="Sky_dslhr"]
+sky_material = SubResource("PanoramaSkyMaterial_vtiin")
+
+[sub_resource type="Environment" id="Environment_vtiin"]
+background_mode = 2
+sky = SubResource("Sky_dslhr")
+tonemap_mode = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dslhr"]
 _surfaces = [{
-"aabb": AABB(-2, -0.5, -2, 4, 1, 4),
-"attribute_data": PackedByteArray("TWQ5vU1kObxNZDk9TWQ5vE1kOT1NZDk8TWQ5vU1kOTxNZDk9TWQ5PE1kOb1NZDk8TWQ5vU1kObxNZDk9TWQ5vE1kOb1NZDk9TWQ5vU1kOb1NZDk9TWQ5vU1kOT1NZDk9TWQ5PU1kOT1NZDm9TWQ5PU1kOb1NZDm9TWQ5PU1kOb1NZDm9TWQ5vE1kOT1NZDm8TWQ5PU1kOTxNZDm9TWQ5PE1kOT1NZDk8TWQ5vU1kOTxNZDm9TWQ5vE1kOT1NZDm8"),
+"aabb": AABB(-39.375, -19.21875, -28.34375, 64.6875, 24.71875, 65.78125),
+"attribute_data": PackedByteArray("QsUBP4vjQz+Gz16+XdpDP944Sr7ty2M+zSKmPIcuRj4BCIA+pOqDPv2iLr4GYDW+ry8jvg3BMb7/S9y9kqpDPdmuOr4BU2k9IUdlvuSLIr7N3Su+qqErPwGrrr3Guoc+5zM+veMjOj5l4gg+zt4bPtjmNz60ej0++obYPqGhKz/EHuS9dmePPDfDmb3Ma5c9ieJzvY7AOz7VJ7q9c0WDPv1/Er4cJYk+fxRrvtnRhT7zlD6+i4zbPHMVpL1iZDg+C8FpvDU/lz6yqPm+z0Q8PyJjLr8crvk+uJBkvpjlGT45GQy+6eshPgxYwL32IHY+87oavqHRYT7TtMu924VVPqu3vb1PSke+OAoRvQZIJb7I6BW9vmYJvukbzr0wIam9hzZIvuG2Q726b1O+Bs1UvQ8dB7ynjNK9LEJvu/hIrT0kzAm+LczrPUV/L77RzXE9nshgvpoQJ762XPu98d5EvuBiFLxIbns99zaRPDz2xD1tUVo8XfZAPoWK9L3PS00+oVUPvmQ3vD206vo8Pf2FPhdo5T17w5A+uyoMPwwZOD/fgCc/5TBkP8C2Bb5nKGQ/xH67PLHihj4inbk9GlGBPn+UEj2Jz64+S3spvdqdwD4R3km9gUfAPvcBDL5sGY0+2XYVvkV7ej6yhPm9fu4sPlDRMTw3IyA+hsJWPX+wM75BZKm8zhCuvUrrCL6ngTS+9siDvfLAYb7zqN88uKG9Pk35Rb2K2ao+DM3bPJvtlj4LGis+0BMzvo+GGT48NwC+yRYiPX0t9L1UMZm9uBkuvhd/ir2gBUm+9lAXPmp5Sr4RKFE+3q0cvuo+Zj4DkZY9P2syvC4w8j1AXBq9PfaqPQMcG73b/NS9Jw0ZPU9ZRb6Ja/i9EuZMPj4ceL2UHS0+VhAzPvdHOD572WI+7E9oPmLwWT6bA6M+DJp4vFBFxD0A22E+gjdRPfJFlT66v5I9vuKWPtqf6z3a/xM++zB6Pgm9iD0xoI8+69WOvCKyQD5p5V2+6axNPpHY0L1pOSE+L+twPpx2iD64kJA+uXAtPzmGDb7zbi0/umdHPotdGr5QlGY+IukIvvs6nD5+Peg8yZiRPgvJxT20hFo+R4mbPYX+Lz25R1U+LczxPbTXKj7dobA+qYGLPvvk6z74gE8/P3+dPEKuwj5bB707TJicPirYED4wOT2+wQVVPgBXTL4SQKk+9+pRvhyavz5ayBW+otO6PjUVBr78XU0+lCaRvWANLz5S97a9LxrxPaE0Db7zkL4+8gkJPnAYrj7F3JM+qh7iPXK0QT65ioA+BiBLPRvuqD41hcc7BaKGPhOFbj1CZUI+FS7bve/9tT4iaSe+ekadPvOhgD6cbKU+IAnAPYB9zz5mX7Y93w19P82jrD5GxCM/+dtpP2v4/z4xS0Q/3BeTPp2iP72iW7o+dS8MvJAl0j6mikE+TxGoPiDkRT5YzE8+lk7sPRmVSj4ezpM9Pq9gPmmViTuKPPw+8PssvcuyrD7aFz89s4+FPmTkATwZy5c+YqcjvqxanT72RzK+3rAdvzl5GT8qX06+J919PozUCzrg8xI+uLeVPaSPHD59xIM+znIZPzK8tz5jfUw+WWmfPks7HDurS+8+PLeuvdGycz/jqCQ+CZJzPxFk2T4="),
 "format": 34359742487,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"index_count": 294,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAAADAAQABQAGAAcABQAHAAgABQAIAAkACgALAAwACgAMAA0ACgANAA4ACgAOAA8AEAARABIAEAASABMAEAATABQAEAAUABUAEAAVABYAFwAYABkAFwAZABoAFwAaABsAFwAbABwAHQAeAB8AIAAhACIAIAAiACMAIAAjACQAIAAkACUAJgAnACgAJgAoACkAJgApACoAJgAqACsALAAtAC4ALAAuAC8ALAAvADAAMQAyADMAMQAzADQAMQA0ADUAMQA1ADYANwA4ADkANwA5ADoANwA6ADsANwA7ADwANwA8AD0ANwA9AD4APwBAAEEAPwBBAEIAQwBEAEUARgBHAEgARgBIAEkARgBJAEoASwBMAE0ASwBNAE4ASwBOAE8ASwBPAFAASwBQAFEAUgBTAFQAUgBUAFUAUgBVAFYAVwBYAFkAVwBZAFoAVwBaAFsAVwBbAFwAVwBcAF0AXgBfAGAAXgBgAGEAXgBhAGIAYwBkAGUAYwBlAGYAYwBmAGcAaABpAGoAaABqAGsAaABrAGwAaABsAG0AbgBvAHAAbgBwAHEAbgBxAHIAbgByAHMAbgBzAHQAbgB0AHUAdgB3AHgAdgB4AHkAegB7AHwAegB8AH0AfgB/AIAAfgCAAIEAfgCBAIIAfgCCAIMAhACFAIYAhACGAIcAhACHAIgAhACIAIkAhACJAIoAiwCMAI0AiwCNAI4AiwCOAI8AkACRAJIAkACSAJMAkACTAJQAlQCWAJcAlQCXAJgAlQCYAJkA"),
 "material": ExtResource("3_tiyyp"),
 "name": "sand_seamless",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAQAAAAD8AAADAAAAAwAAAAD8AAADAAAAAwAAAAL8AAADAAAAAQAAAAL8AAADAAAAAwAAAAL8AAABAAAAAwAAAAL8AAADAAAAAwAAAAD8AAADAAAAAwAAAAD8AAABAAAAAwAAAAL8AAABAAAAAQAAAAL8AAABAAAAAQAAAAL8AAADAAAAAwAAAAL8AAADAAAAAwAAAAD8AAABAAAAAwAAAAD8AAADAAAAAQAAAAD8AAADAAAAAQAAAAD8AAABAAAAAQAAAAD8AAABAAAAAQAAAAD8AAADAAAAAQAAAAL8AAADAAAAAQAAAAL8AAABAAAAAQAAAAL8AAABAAAAAwAAAAL8AAABAAAAAwAAAAD8AAABAAAAAQAAAAD8AAABA/////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
+"vertex_count": 154,
+"vertex_data": PackedByteArray("AMC0wQDAmcEAwM3BAAAVQQDAmcEAwOLBAIAYQQAAKD8AgG7BAAAAAAAA3D8AgFbBAAAkwQAAIL8AgGLBAIAlQQAAAEAAgE/BAAAjQQAAEkAAAEnBAADQPgAAZkAAACvBAAAAAAAA3D8AgFbBAIAYQQAAKD8AgG7BAIDKQQDAmcEAAPfAAACOQQAAKMAAAM/AAIB5QQAASD8AAN/AAIAlQQAAAEAAgE/BAIAYQQAAKD8AgG7BAAAVQQDAmcEAwOLBAADQPgAAZkAAACvBAAAEwAAAhkAAgBLBAADbwAAAfkAAAAPBAIAgwQAAMkAAABHBAIAowQAAuD8AAC/BAAAkwQAAIL8AgGLBAAAAAAAA3D8AgFbBAIA1wQAAHkAAgAnBAAB5wQAA7D8AAJLAAED9wQDAmcEAAHPBAMC0wQDAmcEAwM3BAAAkwQAAIL8AgGLBAIAowQAAuD8AAC/BAIA1wQAAHkAAgAnBAIAowQAAvD8AAC/BAIAgwQAAMkAAABHBAIB5QQAASD8AAN/AAABmQQAAIkAAAJ/AAABWQQAASEAAAKnAAIA3QQAASkAAAAbBAAAjQQAAEkAAAEnBAIAlQQAAAEAAgE/BAADxQAAAlUAAAGLAAAA4vwAArUAAAGDAAAAEwAAAhkAAgBLBAADQPgAAZkAAACvBAAAjQQAAEkAAAEnBAIA3QQAASkAAAAbBAAA4vwAArUAAAGDAAAAQwAAAsEAAABTAAADKwAAApEAAABzAAADbwAAAfkAAAAPBAAAEwAAAhkAAgBLBAIB5wQAA9D8AAIfAAMCHwQAAmD8AAFi/AAAGwgAAV8EAAHJBAIAdwgDAmcEAAJVBAED9wQDAmcEAAHPBAAB5wQAA7D8AAJLAAAAmwQAAkEAAAKA/AABiwQAAPEAAAHC/AIB5wQAA9D8AAIfAAAB5wQAA7D8AAJLAAIA1wQAAHkAAgAnBAIAgwQAAMkAAABHBAADbwAAAfkAAAAPBAADKwAAApEAAABzAAAA3QQAAh0AAAGC+AADxQAAAlUAAAGLAAIA3QQAASkAAAAbBAABWQQAASEAAAKnAAMCHwQAAmD8AAFi/AIB5wQAA9D8AAIfAAABiwQAAPEAAAHC/AABZQQAAPEAAAK1AAIA6QQAAgUAAAJVAAAA3QQAAh0AAAGC+AABWQQAASEAAAKnAAABmQQAAIkAAAJ/AAIA6QQAAgUAAAJVAAAAbQQAAhEAAAOVAAACQvgAAoEAAgAFBAAAQwAAAsEAAABTAAAA4vwAArUAAAGDAAADxQAAAlUAAAGLAAAA3QQAAh0AAAGC+AIBiQQAA5D8AAAJBAABZQQAAPEAAAK1AAABmQQAAIkAAAJ/AAIB5QQAASD8AAN/AAACOQQAAKMAAAM/AAAAQwAAAsEAAABTAAACQvgAAoEAAgAFBAACYvwAAl0AAgDNBAABGwAAAkEAAgDVBAIAMwQAAjUAAAJZAAAAmwQAAkEAAAKA/AADKwAAApEAAABzAAABmQQAAAD0AAFRBAIBiQQAA5D8AAAJBAACOQQAAKMAAAM/AAIDKQQDAmcEAAPfAAAC6QQDAmcEAACxBAAAbQQAAhEAAAOVAAAAPQQAAgUAAAAhBAADoPwAAikAAgEFBAACYvwAAl0AAgDNBAACQvgAAoEAAgAFBAAAmwQAAkEAAAKA/AIAMwQAAjUAAAJZAAIBNwQAAML8AAFpBAAAGwgAAV8EAAHJBAMCHwQAAmD8AAFi/AABiwQAAPEAAAHC/AABZQQAAPEAAAK1AAIBiQQAA5D8AAAJBAABmQQAAAD0AAFRBAABAQQAA4D4AgHZBAAA2QQAAUD8AgHFBAAAPQQAAgUAAAAhBAAAbQQAAhEAAAOVAAIA6QQAAgUAAAJVAAADRwAAAqD8AAH5BAIBNwQAAML8AAFpBAIAMwQAAjUAAAJZAAABGwAAAkEAAgDVBAACCQAAAMEAAgGpBAADoPwAAikAAgEFBAAAPQQAAgUAAAAhBAAA2QQAAUD8AgHFBAIBNwQAAML8AAFpBAADRwAAAqD8AAH5BAADLwAAAML8AQJdBAECCwQDAmcEAoBVCAIAdwgDAmcEAAJVBAAAGwgAAV8EAAHJBAACCQAAAMEAAgGpBAAAYQAAAUD8AgItBAADLwAAAML8AQJdBAADRwAAAqD8AAH5BAABGwAAAkEAAgDVBAACYvwAAl0AAgDNBAADoPwAAikAAgEFBAADIQAAAgsAAgLJBAAAYQAAAUD8AgItBAACCQAAAMEAAgGpBAAA2QQAAUD8AgHFBAABAQQAA4D4AgHZBAACUwADAmcEAwBVCAADIQAAAgsAAgLJBAABAQQAA4D4AgHZBAABmQQAAAD0AAFRBAAC6QQDAmcEAACxBAADLwAAAML8AQJdBAAAYQAAAUD8AgItBAADIQAAAgsAAgLJBAACUwADAmcEAwBVCAECCwQDAmcEAoBVCRDH8+cQJ/79EMfz5xAn/v0Qx/PnECf+/RDH8+cQJ/79EMfz5xAn/v2G00v//fyLaYbTS//9/ItphtNL//38i2mG00v//fyLaYbTS//9/Ito24yDIAAAJ5DbjIMgAAAnkNuMgyAAACeQ24yDIAAAJ5DbjIMgAAAnkNuMgyAAACeRuRXXz/3+C2W5FdfP/f4LZbkV18/9/gtluRXXz/3+C2W5FdfP/f4LZbkV18/9/gtluRXXz/3+C2SgyLNb/f7/aKDIs1v9/v9ooMizW/3+/2igyLNb/f7/aKDIs1v9/v9ooMizW/3+/2lI+DeP/f7rXUj4N4/9/utdSPg3j/3+6127ELdX/fz3TbsQt1f9/PdNuxC3V/389027ELdX/fz3TbsQt1f9/PdNuxC3V/389022favf/fz3MbZ9q9/9/Pcxtn2r3/389zG2favf/fz3MbZ9q9/9/Pcxtn2r3/389zOZjYvf/f3HK5mNi9/9/ccrmY2L3/39xyuZjYvf/f3HK5mNi9/9/ccpuNUbDO2j/v241RsM7aP+/bjVGwzto/79uNUbDO2j/v241RsM7aP+/bjVGwzto/7/zVfLk/3+AyfNV8uT/f4DJ81Xy5P9/gMnzVfLk/3+AyfNV8uT/f4DJ81Xy5P9/gMnzVfLk/3+AyfNV8uT/f4DJQ6HQ6v9/PMdDodDq/388x0Oh0Or/fzzHQ6HQ6v9/PMeTTc7Q/3+OwpNNztD/f47Ck03O0P9/jsLTrovQ/3+Bv9Oui9D/f4G/066L0P9/gb/TrovQ/3+Bv9Oui9D/f4G/PYo58v9/FL49ijny/38Uvj2KOfL/fxS+PYo58v9/FL49ijny/38Uvj2KOfL/fxS+PYo58v9/FL6Zy1yw///B/JnLXLD//8H8mctcsP//wfyZy1yw///B/JnLXLD//8H8fnUz7v9/Brx+dTPu/38GvH51M+7/fwa8fnUz7v9/Brx+dTPu/38GvH51M+7/fwa8fnUz7v9/BrwX0r+k//+T+RfSv6T//5P5F9K/pP//k/kX0r+k//+T+RfSv6T//5P5Sorr6P9/C7lKiuvo/38LuUqK6+j/fwu5Sorr6P9/C7lKiuvo/38LudZXf8P/fy2x1ld/w/9/LbHWV3/D/38tsdZXf8P/fy2x1ld/w/9/LbHWV3/D/38tsd6gBMj/f3Ow3qAEyP9/c7DeoATI/39zsN6gBMj/f3Ow3qAEyP9/c7DeoATI/39zsN6gBMj/f3Ow3qAEyP9/c7BeYHXG/3/Krl5gdcb/f8quXmB1xv9/yq5eYHXG/3/KrqiSCc7/f62tqJIJzv9/ra2okgnO/3+traiSCc7/f62t81+OuP9/uaXzX464/3+5pfNfjrj/f7ml81+OuP9/uaXzX464/3+5pfNfjrj/f7mlnntTyv9/eqaee1PK/396pp57U8r/f3qmnntTyv9/eqaee1PK/396pp57U8r/f3qmnntTyv9/eqZejaq+/3/8ol6Nqr7/f/yiXo2qvv9//KJejaq+/3/8ol6Nqr7/f/yi+bWVkf//SN/5tZWR//9I3/m1lZH//0jf+bWVkf//SN/5tZWR//9I39x/8L//fwCg3H/wv/9/AKDcf/C//38AoNx/8L//fwCg3H/wv/9/AKA=")
 }]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dslhr"]
-points = PackedVector3Array(2, 0.5, 2, 2, -0.5, 2, -2, 0.5, 2, -2, -0.5, 2, 2, 0.5, -2, 2, -0.5, -2, -2, 0.5, -2, -2, -0.5, -2)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vtiin"]
+points = PackedVector3Array(0.5, 12, 0.5, 0.5, 10, 0.5, -0.5, 12, 0.5, -0.5, 10, 0.5, 0.5, 12, -0.5, 0.5, 10, -0.5, -0.5, 12, -0.5, -0.5, 10, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_q4mts"]
+points = PackedVector3Array(6.243493, -4.0686855, 22.307798, -4.633204, -19.206915, 37.427647, 2.3841043, 0.80011547, 17.429056, -6.3347893, -0.68914855, 18.90003, -16.27379, -19.206915, 37.402554, 12.005356, 0.43532786, 15.393571, 14.362188, 0.043697868, 13.261483, 23.259356, -19.206915, 10.7506, 4.075923, 2.7394557, 14.654959, 11.380504, 0.81640345, 15.09477, -6.532823, 1.2996932, 15.883356, 1.8239877, 4.305061, 12.09399, -3.09138, 4.5148706, 11.340814, -1.1749884, 4.705264, 11.224002, -12.831056, -0.69819206, 13.628327, -33.486687, -13.435682, 15.113567, -39.36446, -19.206915, 18.618382, 8.945276, 4.0448227, 8.497102, -8.766885, 4.4140205, 4.6871195, 9.688502, 4.1350117, 7.1587543, 14.154327, 1.7911788, 8.110882, 13.574634, 2.9224644, 5.4097176, 11.671841, 4.034629, 4.650264, -10.380374, 4.487007, 1.2587068, -14.117283, 2.926874, -0.9427172, -16.981249, 1.1892691, -0.8313277, -0.2693209, 4.9995584, 8.080015, 17.758547, -2.6277652, -6.471653, 25.32068, -19.206915, -7.7342253, -2.2489715, 5.4978886, -2.3062115, -6.3150225, 5.1197195, -2.4483159, 14.372699, 2.5386786, -4.955394, 15.605726, 0.78020483, -6.9834676, 11.443255, 4.205104, -0.20539452, 7.5184426, 4.659538, -3.522799, -0.718012, 5.397399, -3.497824, 13.359697, 3.1301005, -5.2734966, -31.657131, -19.206915, -15.183594, -22.581955, -19.206915, -25.720745, 9.322699, -19.206915, -28.356712, -15.592344, 1.8936515, -4.204162, 11.456623, 3.1581252, -8.389783, -15.554662, 1.8416984, -4.5699344, -6.8318453, 3.9569979, -8.180673, -11.349225, 2.464703, -8.585324, -10.034017, 2.7958288, -9.059907, -2.0570707, 4.180634, -9.143928, 10.176365, 2.2854009, -12.559581, 0.39585757, 3.5959241, -10.694021, 10.328675, 1.99568, -12.9787, -10.524441, 1.4530675, -10.951697, -10.25499, -0.61377805, -14.142621, -0.010788954, 1.7259272, -13.403881, 9.516201, 0.66370606, -14.910645)
+
+[sub_resource type="Shader" id="Shader_dslhr"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.6.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_always, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_refraction : filter_linear_mipmap, repeat_enable;
+uniform float refraction : hint_range(-1.0, 1.0, 0.001);
+uniform vec4 refraction_texture_channel;
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_linear_mipmap;
+uniform sampler2D depth_texture : hint_depth_texture, repeat_disable, filter_nearest;
+
+uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
+uniform float normal_scale : hint_range(-16.0, 16.0);
+varying vec3 uv1_triplanar_pos;
+
+uniform float uv1_blend_sharpness : hint_range(0.0, 150.0, 0.001);
+varying vec3 uv1_power_normal;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
+
+	TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
+	TANGENT = inverse(MODEL_NORMAL_MATRIX) * normalize(TANGENT);
+
+	BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
+	BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
+	BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
+	BINORMAL = inverse(MODEL_NORMAL_MATRIX) * normalize(BINORMAL);
+
+	// UV1 Triplanar: Enabled (with World Triplanar)
+	uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
+	uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset + TIME * 0.0025;
+	uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
+	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+}
+
+vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+	vec4 samp = vec4(0.0);
+	samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
+	samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
+	samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+	return samp;
+}
+
+void fragment() {
+	vec4 albedo_tex = triplanar_texture(texture_albedo, uv1_power_normal, uv1_triplanar_pos);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(triplanar_texture(texture_metallic, uv1_power_normal, uv1_triplanar_pos), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(triplanar_texture(texture_roughness, uv1_power_normal, uv1_triplanar_pos), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+
+	// Normal Map: Enabled
+	NORMAL_MAP = triplanar_texture(texture_normal, uv1_power_normal, uv1_triplanar_pos).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+
+	// Refraction: Enabled (with normal map texture)
+	vec3 unpacked_normal = NORMAL_MAP;
+	unpacked_normal.xy = unpacked_normal.xy * 2.0 - 1.0;
+	unpacked_normal.z = sqrt(max(0.0, 1.0 - dot(unpacked_normal.xy, unpacked_normal.xy)));
+	vec3 ref_normal = normalize(mix(
+			NORMAL,
+			TANGENT * unpacked_normal.x + BINORMAL * unpacked_normal.y + NORMAL * unpacked_normal.z,
+			NORMAL_MAP_DEPTH));
+	vec2 ref_ofs = SCREEN_UV - ref_normal.xy * dot(triplanar_texture(texture_refraction, uv1_power_normal, uv1_triplanar_pos), refraction_texture_channel) * refraction;
+
+	float ref_amount = 1.0 - albedo.a * albedo_tex.a;
+
+	float refraction_depth_tex = textureLod(depth_texture, ref_ofs, 0.0).r;
+	vec4 ndc = OUTPUT_IS_SRGB ? vec4(vec3(SCREEN_UV, refraction_depth_tex) * 2.0 - 1.0, 1.0) : vec4(SCREEN_UV * 2.0 - 1.0, refraction_depth_tex, 1.0);
+	vec4 refraction_view_pos = INV_PROJECTION_MATRIX * ndc;
+	refraction_view_pos.xyz /= refraction_view_pos.w;
+
+	// If the depth buffer is lower then the model's Z position, use the refracted UV, otherwise use the normal screen UV.
+	// At low depth differences, decrease refraction intensity to avoid sudden discontinuities.
+	EMISSION += textureLod(screen_texture, mix(SCREEN_UV, ref_ofs, smoothstep(0.0, 1.0, VERTEX.z - refraction_view_pos.z)), ROUGHNESS * 8.0).rgb * ref_amount * EXPOSURE;
+	ALBEDO *= 1.0 - ref_amount;
+	// Force transparency on the material (required for refraction).
+	ALPHA = 1.0;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dslhr"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vtiin"]
+noise = SubResource("FastNoiseLite_dslhr")
+seamless = true
+as_normal_map = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vtiin"]
+render_priority = 0
+shader = SubResource("Shader_dslhr")
+shader_parameter/albedo = Color(0.5137255, 0.8392157, 1, 0.44705883)
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/texture_refraction = SubResource("NoiseTexture2D_vtiin")
+shader_parameter/refraction = 0.05
+shader_parameter/refraction_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_vtiin")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0.01, 0.01, 0.01)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ecal6"]
+material = SubResource("ShaderMaterial_vtiin")
+size = Vector3(2000, 10, 2000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dslhr"]
+size = Vector3(2000, 10, 2000)
 
 [node name="TrenchbroomTest" type="Node3D" unique_id=1349019188]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1638095292]
+environment = SubResource("Environment_vtiin")
 
 [node name="FuncGodotMap" type="Node3D" parent="." unique_id=703660146]
 script = ExtResource("1_a1lks")
@@ -30,14 +191,35 @@ local_map_file = "uid://tmocf1mawqjc"
 map_settings = ExtResource("2_tiyyp")
 metadata/_custom_type_script = "uid://cwu5cf7a0awcd"
 
-[node name="entity_0_worldspawn" type="StaticBody3D" parent="FuncGodotMap" unique_id=1380862279]
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="FuncGodotMap" unique_id=590274079]
 collision_mask = 0
 
-[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=1439696913]
-mesh = SubResource("ArrayMesh_cdh43")
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=2038863129]
+mesh = SubResource("ArrayMesh_dslhr")
 
-[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=1853557918]
-shape = SubResource("ConvexPolygonShape3D_dslhr")
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=23027675]
+shape = SubResource("ConvexPolygonShape3D_vtiin")
+
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=883820524]
+shape = SubResource("ConvexPolygonShape3D_q4mts")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1881436117]
-transform = Transform3D(0.49999994, 0.61237246, -0.61237246, 0, 0.70710677, 0.70710677, 0.8660254, -0.35355335, 0.35355335, 0, 0, 0)
+transform = Transform3D(0.8660254, 0.41451874, -0.27959642, 0, 0.55919284, 0.8290375, 0.5, -0.7179675, 0.48427522, 0, 0, 0)
+light_color = Color(0.4688012, 0.46193987, 0.56028485, 1)
+
+[node name="ProtoController" parent="." unique_id=54019340 instance=ExtResource("4_cdh43")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.164551, 0)
+input_left = "move_left"
+input_right = "move_right"
+input_forward = "move_forward"
+input_back = "move_backward"
+input_jump = "move_jump"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1225189199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.2738237, 0)
+mesh = SubResource("BoxMesh_ecal6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=296321298]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1132909114]
+shape = SubResource("BoxShape3D_dslhr")
