@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cbkdtqwwcugby"
+path="res://.godot/imported/bigisland.map-8f84a92259e252e7ebd6c52a19035a2c.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/bigisland.map"
+dest_files=["res://.godot/imported/bigisland.map-8f84a92259e252e7ebd6c52a19035a2c.tres"]
+
+[params]
+
